@@ -41,3 +41,9 @@ SELECT COUNT(*) FROM itens_notas_fiscais WHERE codigo_do_produto = '1101035' AND
     YEAR(data_de_nascimento) <= 1995 THEN 'Jovens' 
     ELSE 'Crianças' END
     FROM tabela_de_clientes
+
+--inner join
+SELECT YEAR(DATA_VENDA), SUM(QUANTIDADE * PRECO) AS FATURAMENTO
+FROM notas_fiscais NF INNER JOIN itens_notas_fiscais INF 
+ON NF.NUMERO = INF.NUMERO
+GROUP BY YEAR(DATA_VENDA)
