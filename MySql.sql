@@ -15,3 +15,5 @@ Verdadeiro
 SELECT DISTINCT BAIRRO FROM tabela_de_clientes WHERE CIDADE = 'Rio de Janeiro'
 --Limita quantidade de linhas que deve ser exibida
 SELECT * FROM notas_fiscais  WHERE DATA_VENDA = '2017-01-01' limit 10
+--Ordena de forma decrescente ou ascendente
+SELECT * FROM itens_notas_fiscais WHERE codigo_do_produto = '1101035' ORDER BY QUANTIDADE DESC
