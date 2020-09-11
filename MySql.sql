@@ -30,7 +30,14 @@ SELECT MAX(`QUANTIDADE`) as 'MAIOR QUANTIDADE' FROM itens_notas_fiscais WHERE `C
 SELECT COUNT(*) FROM itens_notas_fiscais WHERE codigo_do_produto = '1101035' AND QUANTIDADE = 99;
 
 --HAVING
-  SELECT CPF, COUNT(*) FROM notas_fiscais
-  WHERE YEAR(DATA_VENDA) = 2016
-  GROUP BY CPF
-  HAVING COUNT(*) > 2000
+    SELECT CPF, COUNT(*) FROM notas_fiscais
+    WHERE YEAR(DATA_VENDA) = 2016
+    GROUP BY CPF
+    HAVING COUNT(*) > 2000
+
+--Case When
+    SELECT NOME,
+    CASE WHEN YEAR(data_de_nascimento) < 1990 THEN 'Velho'WHEN YEAR(data_de_nascimento) >= 1990 AND
+    YEAR(data_de_nascimento) <= 1995 THEN 'Jovens' 
+    ELSE 'Crianças' END
+    FROM tabela_de_clientes
