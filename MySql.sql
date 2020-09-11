@@ -10,3 +10,8 @@ SELECT * FROM tabela_de_clientes WHERE NOME LIKE '%Mattos'
 (Falso) OR (Verdadeiro)
 Verdadeiro
 */
+
+--Evita trazer dados repetidos 
+SELECT DISTINCT BAIRRO FROM tabela_de_clientes WHERE CIDADE = 'Rio de Janeiro'
+--Limita quantidade de linhas que deve ser exibida
+SELECT * FROM notas_fiscais  WHERE DATA_VENDA = '2017-01-01' limit 10
