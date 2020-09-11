@@ -89,3 +89,14 @@ tabela_de_vendedores.NOME, DE_FERIAS,
 tabela_de_clientes.BAIRRO,
 tabela_de_clientes.NOME  FROM tabela_de_vendedores RIGHT JOIN tabela_de_clientes
 ON tabela_de_vendedores.BAIRRO = tabela_de_clientes.BAIRRO;
+
+--SUB CONSULTA
+  SELECT CPF, COUNT(*) FROM notas_fiscais
+  WHERE YEAR(DATA_VENDA) = 2016
+  GROUP BY CPF
+  HAVING COUNT(*) > 2000
+
+  SELECT X.CPF, X.CONTADOR FROM 
+(SELECT CPF, COUNT(*) AS CONTADOR FROM notas_fiscais
+WHERE YEAR(DATA_VENDA) = 2016
+GROUP BY CPF) X WHERE X.CONTADOR > 2000
