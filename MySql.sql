@@ -59,3 +59,16 @@ SELECT YEAR(DATA_VENDA), SUM(QUANTIDADE * PRECO) AS FATURAMENTO
 FROM notas_fiscais NF LEFT JOIN itens_notas_fiscais INF 
 ON NF.NUMERO = INF.NUMERO
 GROUP BY YEAR(DATA_VENDA)
+
+--FULL JOIN
+SELECT tabela_de_vendedores.BAIRRO,
+tabela_de_vendedores.NOME, DE_FERIAS,
+tabela_de_clientes.BAIRRO,
+tabela_de_clientes.NOME  FROM tabela_de_vendedores FULL JOIN tabela_de_clientes
+ON tabela_de_vendedores.BAIRRO = tabela_de_clientes.BAIRRO;
+
+--CROSS JOIN , <-Funciona no mysql
+SELECT tabela_de_vendedores.BAIRRO,
+tabela_de_vendedores.NOME, DE_FERIAS,
+tabela_de_clientes.BAIRRO,
+tabela_de_clientes.NOME  FROM tabela_de_vendedores , tabela_de_clientes;
